@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "marge",
+  "builds": [{ "src": "next.config.js", "use": "@now/next" }],
+  "env": {
+    "ADMIN_EMAIL": "@admin_email",
+    "ADMIN_PASSWORD": "@admin_password",
+    "COOKIE_NAME": "@cookie_name"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "ADMIN_EMAIL": "@admin_email",
+  "ADMIN_PASSWORD": "@admin_password",
+  "LOGIN_SALT": "@login_salt"
+}
