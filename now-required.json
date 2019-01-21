@@ -1,5 +1,6 @@
 {
   "ADMIN_EMAIL": "@admin_email",
   "ADMIN_PASSWORD": "@admin_password",
-  "LOGIN_SALT": "@login_salt"
+  "AUTH_TOKEN": "@auth_token",
+  "COOKIE_NAME": "@cookie_name"
 }

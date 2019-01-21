@@ -34,9 +34,9 @@ const lambda = (req, res) => {
       ) {
         res.writeHeader(200, {
           "Content-Type": "application/json",
-          "Set-Cookie": `${
-            process.env.COOKIE_NAME
-          }=1; HttpOnly; Secure; Max-Age=86400; Path=/`
+          "Set-Cookie": `${process.env.COOKIE_NAME}=${
+            process.env.AUTH_TOKEN
+          }; HttpOnly; Secure; Max-Age=86400; Path=/`
         })
         res.end(JSON.stringify({ ok: true }))
       } else {
