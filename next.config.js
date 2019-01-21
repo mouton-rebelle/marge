@@ -4,9 +4,5 @@ if (process.env.NODE_ENV !== "production") {
 
 module.exports = {
   generateEtags: false,
-  target: "serverless",
-  serverRuntimeConfig: {},
-  publicRuntimeConfig: {
-    checkLoginRoute: "/api/check"
-  }
+  target: "serverless"
 }

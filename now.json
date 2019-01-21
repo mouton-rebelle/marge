@@ -1,7 +1,10 @@
 {
   "version": 2,
   "name": "marge",
-  "builds": [{ "src": "next.config.js", "use": "@now/next" }],
+  "builds": [
+    { "src": "next.config.js", "use": "@now/next" },
+    { "src": "api/*/index.js", "use": "@now/node" }
+  ],
   "env": {
     "ADMIN_EMAIL": "@admin_email",
     "ADMIN_PASSWORD": "@admin_password",

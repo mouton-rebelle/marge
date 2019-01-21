@@ -4,8 +4,9 @@ const { parse } = require("querystring")
 if (process.env.NODE_ENV !== "production") {
   require("now-env")
 }
-const server = http.createServer((req, res) => {
-  if (req.method !== "DELETE") {
+
+const lambda = (req, res) => {
+  if (req.method === "DELETE") {
     res.writeHeader(200, {
       "Content-Type": "application/json",
       "Set-Cookie": `${
@@ -45,9 +46,11 @@ const server = http.createServer((req, res) => {
         res.end(JSON.stringify({ ok: false }))
       }
     })
-})
-if (process.env.NODE_ENV === "production") {
-  server.listen()
-} else {
+}
+
+if (process.env.NODE_ENV !== "production") {
+  const server = http.createServer(lambda)
   server.listen(3009)
+} else {
+  module.exports = lambda
 }
