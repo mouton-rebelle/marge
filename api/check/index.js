@@ -1,56 +1,41 @@
-const http = require("http")
-const { parse } = require("querystring")
+const getJsonBody = require("../../utils/getJsonBody")
+const sendJson = require("../../utils/sendJson")
 
-if (process.env.NODE_ENV !== "production") {
-  require("now-env")
-}
-
-const lambda = (req, res) => {
-  if (req.method === "DELETE") {
-    res.writeHeader(200, {
-      "Content-Type": "application/json",
-      "Set-Cookie": `${
-        process.env.COOKIE_NAME
-      }=1; HttpOnly; Secure; Max-Age=-1; Path=/`
-    })
-    res.end(JSON.stringify({ ok: true }))
-  }
-  if (req.method !== "POST") {
-    res.writeHeader(401, {
-      "Content-Type": "application/json"
-    })
-    res.end(JSON.stringify({ ok: false }))
-  }
-  let body = ""
-  req
-    .on("data", chunk => {
-      body += chunk.toString()
-    })
-    .on("end", () => {
-      const postData = JSON.parse(body)
+module.exports = async (req, res) => {
+  switch (req.method) {
+    case "DELETE":
+      sendJsonResponse(
+        res,
+        200,
+        { ok: true },
+        {
+          "Set-Cookie": `${
+            process.env.COOKIE_NAME
+          }=1; HttpOnly; Secure; Max-Age=-1; Path=/`
+        }
+      )
+      break
+    case "POST":
+      const data = await getJsonBody(req)
       if (
-        postData.login === process.env.ADMIN_EMAIL &&
-        postData.password === process.env.ADMIN_PASSWORD
+        data.login === process.env.ADMIN_EMAIL &&
+        data.password === process.env.ADMIN_PASSWORD
       ) {
-        res.writeHeader(200, {
-          "Content-Type": "application/json",
-          "Set-Cookie": `${process.env.COOKIE_NAME}=${
-            process.env.AUTH_TOKEN
-          }; HttpOnly; Secure; Max-Age=86400; Path=/`
-        })
-        res.end(JSON.stringify({ ok: true }))
+        sendJson(
+          res,
+          200,
+          { ok: true },
+          {
+            "Set-Cookie": `${
+              process.env.COOKIE_NAME
+            }=1; HttpOnly; Secure; Max-Age=-86400; Path=/`
+          }
+        )
       } else {
-        res.writeHeader(401, {
-          "Content-Type": "application/json"
-        })
-        res.end(JSON.stringify({ ok: false }))
+        sendJson(res, 401, { ok: false })
       }
-    })
-}
-
-if (process.env.NODE_ENV !== "production") {
-  const server = http.createServer(lambda)
-  server.listen(3009)
-} else {
-  module.exports = lambda
+      break
+    default:
+      sendJson(res, 401, { ok: false })
+  }
 }

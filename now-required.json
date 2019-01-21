@@ -2,5 +2,6 @@
   "ADMIN_EMAIL": "@admin_email",
   "ADMIN_PASSWORD": "@admin_password",
   "AUTH_TOKEN": "@auth_token",
-  "COOKIE_NAME": "@cookie_name"
+  "COOKIE_NAME": "@cookie_name",
+  "GOOGLE_CREDS": "@google_creds"
 }

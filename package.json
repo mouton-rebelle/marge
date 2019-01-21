@@ -14,7 +14,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "api": "node api/check/index.js"
+    "api": "node api/server.js"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

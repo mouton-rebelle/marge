@@ -8,15 +8,12 @@ export default class MyApp extends App {
     let pageProps = {}
     let requireLogin = false
     if (ctx.req && ctx.req.url.indexOf("/admin") === 0) {
-      console.log("ici")
       const cookies = getCookies(ctx)
       requireLogin = typeof cookies[process.env.COOKIE_NAME] === "undefined"
-      console.log(requireLogin)
     }
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx)
     }
-    console.log(requireLogin)
     return { pageProps, requireLogin }
   }
   constructor(props) {

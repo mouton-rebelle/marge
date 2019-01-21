@@ -9,6 +9,7 @@
     "ADMIN_EMAIL": "@admin_email",
     "ADMIN_PASSWORD": "@admin_password",
     "COOKIE_NAME": "@cookie_name",
-    "AUTH_TOKEN": "@auth_token"
+    "AUTH_TOKEN": "@auth_token",
+    "GOOGLE_CREDS": "@google_creds"
   }
 }
