@@ -1,8 +1,8 @@
-import Link from "next/link"
+import Link from 'next/link'
 
 const linkStyle = {
   marginRight: 15,
-  color: "tomato"
+  color: 'tomato'
 }
 
 const Header = () => (

@@ -1,5 +1,6 @@
+import Layout from '../../components/Admin/Layout'
 export default () => (
-  <div>
+  <Layout>
     <p>This is the ADMIN page</p>
-  </div>
+  </Layout>
 )

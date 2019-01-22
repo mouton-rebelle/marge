@@ -1,15 +1,15 @@
-import React from "react"
-import App, { Container } from "next/app"
-import getCookies from "next-cookies"
-import { Input, Form, Row, Label } from "../components/styled/form"
+import React from 'react'
+import App, { Container } from 'next/app'
+import getCookies from 'next-cookies'
+import { Input, Form, Row, Label } from '../components/styled/form'
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {}
     let requireLogin = false
-    if (ctx.req && ctx.req.url.indexOf("/admin") === 0) {
+    if (ctx.req && ctx.req.url.indexOf('/admin') === 0) {
       const cookies = getCookies(ctx)
-      requireLogin = typeof cookies[process.env.COOKIE_NAME] === "undefined"
+      requireLogin = typeof cookies[process.env.COOKIE_NAME] === 'undefined'
     }
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx)
@@ -19,8 +19,8 @@ export default class MyApp extends App {
   constructor(props) {
     super(props)
     this.state = {
-      login: "",
-      password: ""
+      login: '',
+      password: ''
     }
   }
   handleSubmit = event => {
@@ -28,11 +28,11 @@ export default class MyApp extends App {
     this.login()
   }
   login = async () => {
-    const rawResponse = await fetch("/api/check", {
-      method: "POST",
+    const rawResponse = await fetch('/api/check', {
+      method: 'POST',
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         login: this.state.login,

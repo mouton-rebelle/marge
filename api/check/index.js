@@ -1,34 +1,35 @@
-const getJsonBody = require("../../utils/getJsonBody")
-const sendJson = require("../../utils/sendJson")
+const getJsonBody = require('../../utils/getJsonBody')
+const sendJson = require('../../utils/sendJson')
 
 module.exports = async (req, res) => {
   switch (req.method) {
-    case "DELETE":
+    case 'DELETE':
       sendJsonResponse(
         res,
         200,
         { ok: true },
         {
-          "Set-Cookie": `${
+          'Set-Cookie': `${
             process.env.COOKIE_NAME
           }=1; HttpOnly; Secure; Max-Age=-1; Path=/`
         }
       )
       break
-    case "POST":
+    case 'POST':
       const data = await getJsonBody(req)
       if (
         data.login === process.env.ADMIN_EMAIL &&
         data.password === process.env.ADMIN_PASSWORD
       ) {
+        console.log('ooo')
         sendJson(
           res,
           200,
           { ok: true },
           {
-            "Set-Cookie": `${
+            'Set-Cookie': `${
               process.env.COOKIE_NAME
-            }=1; HttpOnly; Secure; Max-Age=-86400; Path=/`
+            }=1; HttpOnly; Secure; Max-Age=86400; Path=/`
           }
         )
       } else {

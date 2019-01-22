@@ -16,7 +16,7 @@ exports.onFileChange = functions.storage.object().onFinalize(event => {
 
   if (path.basename(filePath).startsWith("resized-")) {
     console.log("We already renamed that file!");
-    return;
+    return true;
   }
 
   const destBucket = gcs.bucket(bucket);

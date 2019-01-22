@@ -1,6 +1,6 @@
-import Document, { Head, Main, NextScript } from "next/document"
+import Document, { Head, Main, NextScript } from 'next/document'
 // Import styled components ServerStyleSheet
-import { ServerStyleSheet } from "styled-components"
+import { ServerStyleSheet } from 'styled-components'
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -27,6 +27,9 @@ export default class MyDocument extends Document {
           <style>
             {`body{
               font-family: Arial;
+              font-size: 14px;
+              margin: 0;
+              padding: 0;
             }`}
           </style>
           {this.props.styleTags}

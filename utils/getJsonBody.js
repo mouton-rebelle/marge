@@ -1,12 +1,12 @@
 module.exports = getJsonBody = req => {
   return new Promise((resolve, reject) => {
     try {
-      let body = ""
+      let body = ''
       req
-        .on("data", chunk => {
+        .on('data', chunk => {
           body += chunk.toString()
         })
-        .on("end", () => {
+        .on('end', () => {
           const postData = JSON.parse(body)
           resolve(postData)
         })

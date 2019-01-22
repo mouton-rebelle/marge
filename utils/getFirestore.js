@@ -1,10 +1,10 @@
-if (process.env.NODE_ENV !== "production") {
-  require("now-env")
+if (process.env.NODE_ENV !== 'production') {
+  require('now-env')
 }
-const firebase = require("firebase")
-const admin = require("firebase-admin")
-const buff = Buffer.from(process.env.GOOGLE_CREDS, "base64")
-const creds = JSON.parse(buff.toString("ascii"))
+const firebase = require('firebase')
+const admin = require('firebase-admin')
+const buff = Buffer.from(process.env.GOOGLE_CREDS, 'base64')
+const creds = JSON.parse(buff.toString('ascii'))
 admin.initializeApp({
   credential: admin.credential.cert(creds)
 })

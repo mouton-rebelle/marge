@@ -10,6 +10,7 @@
     "ADMIN_PASSWORD": "@admin_password",
     "COOKIE_NAME": "@cookie_name",
     "AUTH_TOKEN": "@auth_token",
-    "GOOGLE_CREDS": "@google_creds"
+    "GOOGLE_CREDS": "@google_creds",
+    "BASE_URL": "https://marge.com"
   }
 }

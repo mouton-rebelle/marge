@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components"
-import * as colors from "./colors"
+import styled, { css } from 'styled-components'
+import * as colors from './colors'
 
 const FormControl = css`
   padding: 0.3em 0.6em;
@@ -33,7 +33,7 @@ export const Row = styled.div`
 export const Input = styled.input`
   ${FormControl}
   ${props =>
-    props.type === "submit" &&
+    props.type === 'submit' &&
     css`
       background-color: ${colors.primary};
       border-color: ${colors.primary};
