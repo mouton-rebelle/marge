@@ -52,5 +52,5 @@ export const NavPad = styled.span`
 `
 export const Content = styled.section`
   max-width: 1200px;
-  margin: 1em;
+  margin: 2em;
 `

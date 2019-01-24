@@ -7,8 +7,17 @@
       "jsx": true
     }
   },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "plugins": ["react"],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "rules": {
+    "no-console": 0,
     "semi": ["error", "never"],
-    "quotes": ["error", "single", { "avoidEscape": true }]
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "react/prop-types": 0,
+    "react/react-in-jsx-scope": 0
   }
 }

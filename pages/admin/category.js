@@ -3,14 +3,14 @@ import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
 const { BASE_URL } = publicRuntimeConfig
 import Layout from '../../components/Admin/Layout'
+import CategoryForm from '../../components/Admin/CategoryForm'
 const category = ({ categories }) => {
   return (
     <Layout>
-      <ul>
-        {categories.map((cat, index) => (
-          <li key={index}>{cat.name}</li>
-        ))}
-      </ul>
+      {categories.map(cat => (
+        <CategoryForm key={cat.id} category={cat} />
+      ))}
+      <CategoryForm />
     </Layout>
   )
 }

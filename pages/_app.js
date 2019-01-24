@@ -1,10 +1,17 @@
+/* eslint-env node */
+
 import React from 'react'
 import App, { Container } from 'next/app'
 import getCookies from 'next-cookies'
-import { Input, Form, Row, Label } from '../components/styled/form'
+import {
+  Input,
+  FormCentered,
+  Row,
+  Label
+} from '../components/Admin/styled/form'
 
 export default class MyApp extends App {
-  static async getInitialProps({ Component, router, ctx }) {
+  static async getInitialProps({ Component, ctx }) {
     let pageProps = {}
     let requireLogin = false
     if (ctx.req && ctx.req.url.indexOf('/admin') === 0) {
@@ -50,7 +57,7 @@ export default class MyApp extends App {
     return (
       <Container>
         {requireLogin ? (
-          <Form onSubmit={this.handleSubmit}>
+          <FormCentered onSubmit={this.handleSubmit}>
             <Row>
               <Label>Email</Label>
               <Input
@@ -70,7 +77,7 @@ export default class MyApp extends App {
             <Row>
               <Input type="submit" value="Valider" />
             </Row>
-          </Form>
+          </FormCentered>
         ) : (
           <Component {...pageProps} />
         )}
