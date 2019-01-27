@@ -1,6 +1,6 @@
 const http = require('http')
 const check = require('./check')
-const dbCategories = require('./db/categories')
+const categories = require('./categories')
 const url = require('url')
 const server = http.createServer((req, res) => {
   const parsed = url.parse(req.url)
@@ -8,11 +8,11 @@ const server = http.createServer((req, res) => {
     case '/api/check':
       check(req, res)
       break
-    case '/api/db/categories':
-      dbCategories(req, res)
+    case '/api/categories':
+      categories(req, res)
       break
     default:
       res.end('ok')
   }
 })
-server.listen(3009)
+server.listen()

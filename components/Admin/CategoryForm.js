@@ -19,7 +19,7 @@ class CategoryForm extends React.PureComponent {
   }
   delete = async () => {
     const request = await fetch(
-      `${BASE_URL}/api/db/categories?id=${this.props.category.id}`,
+      `${BASE_URL}/api/categories?id=${this.props.category.id}`,
       { method: 'DELETE' }
     )
     await request.json()
@@ -28,7 +28,7 @@ class CategoryForm extends React.PureComponent {
   save = async evt => {
     evt.preventDefault()
     const request = await fetch(
-      `${BASE_URL}/api/db/categories?id=${
+      `${BASE_URL}/api/categories?id=${
         this.props.category ? this.props.category.id : ''
       }`,
       {

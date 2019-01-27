@@ -3,13 +3,21 @@
   "name": "marge",
   "builds": [
     { "src": "next.config.js", "use": "@now/next" },
-    { "src": "api/*/index.js", "use": "@now/node" }
+    { "src": "api/check.js", "use": "@now/node" },
+    {
+      "src": "api/categories.js",
+      "use": "@now/node",
+      "config": { "maxLambdaSize": "20mb" }
+    }
+  ],
+  "routes": [
+    { "src": "/api/check", "dest": "/api/check.js" },
+    { "src": "/api/categories", "dest": "/api/categories.js" }
   ],
   "env": {
     "ADMIN_EMAIL": "@admin_email",
     "ADMIN_PASSWORD": "@admin_password",
     "COOKIE_NAME": "@cookie_name",
-    "AUTH_TOKEN": "@auth_token",
     "GOOGLE_CREDS": "@google_creds",
     "JWT_SECRET": "@jwt_secret"
   }

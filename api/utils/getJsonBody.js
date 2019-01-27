@@ -1,4 +1,6 @@
-module.exports = getJsonBody = req => {
+// eslint-env node
+
+const getJsonBody = req => {
   return new Promise((resolve, reject) => {
     try {
       let body = ''
@@ -15,3 +17,4 @@ module.exports = getJsonBody = req => {
     }
   })
 }
+module.exports = getJsonBody

@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 const cookie = require('cookie')
-const sendJSon = require('../utils/sendJson')
+const sendJSon = require('./sendJson')
 const checkJWT = (req, res) => {
   const cookies = cookie.parse(req.headers.cookie || '')
   const jwtToken =

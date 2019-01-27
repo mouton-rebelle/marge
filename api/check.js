@@ -1,5 +1,5 @@
-const getJsonBody = require('../../utils/getJsonBody')
-const sendJson = require('../../utils/sendJson')
+const getJsonBody = require('./utils/getJsonBody')
+const sendJson = require('./utils/sendJson')
 const jwt = require('jsonwebtoken')
 
 module.exports = async (req, res) => {

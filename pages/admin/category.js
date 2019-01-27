@@ -16,7 +16,7 @@ const category = ({ categories }) => {
 }
 
 category.getInitialProps = async () => {
-  const res = await fetch(`${BASE_URL}/api/db/categories`)
+  const res = await fetch(`${BASE_URL}/api/categories`)
   const categories = await res.json()
   return { categories }
 }

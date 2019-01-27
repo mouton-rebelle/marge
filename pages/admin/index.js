@@ -1,6 +1,8 @@
 import Layout from '../../components/Admin/Layout'
-export default () => (
+const AdminPage = () => (
   <Layout>
     <p>This is the ADMIN page</p>
   </Layout>
 )
+
+export default AdminPage

@@ -1,8 +1,8 @@
-const db = require('../../utils/getFirestore')
-const getJsonBody = require('../../utils/getJsonBody')
-const sendJson = require('../../utils/sendJson')
+const db = require('./utils/getFirestore')
+const getJsonBody = require('./utils/getJsonBody')
+const sendJson = require('./utils/sendJson')
 const url = require('url')
-const checkJWT = require('../verify')
+const checkJWT = require('./utils/verify')
 
 module.exports = async (req, res) => {
   if (req.method === 'GET' || checkJWT(req, res)) {
@@ -11,14 +11,26 @@ module.exports = async (req, res) => {
       switch (req.method) {
         case 'GET':
           {
-            const querySnapshot = await db
-              .collection('categories')
+            const collection = db.collection('categories')
+            console.log(collection)
+            collection
               .limit(25)
               .get()
-            const data = querySnapshot.docs.map(documentSnapshot => {
-              return { ...documentSnapshot.data(), id: documentSnapshot.id }
-            })
-            sendJson(res, 200, data)
+              .then(
+                querySnapshot => {
+                  const data = querySnapshot.docs.map(documentSnapshot => {
+                    return {
+                      ...documentSnapshot.data(),
+                      id: documentSnapshot.id
+                    }
+                  })
+                  sendJson(res, 200, data)
+                },
+                error => {
+                  console.log('ici ============== ici')
+                  console.log(error)
+                }
+              )
           }
           break
         case 'DELETE':
@@ -54,6 +66,8 @@ module.exports = async (req, res) => {
           sendJson(res, 400, 'Method not supported')
       }
     } catch (err) {
+      console.log('============================')
+      console.log(err)
       sendJson(res, 400, { err })
     }
   }
