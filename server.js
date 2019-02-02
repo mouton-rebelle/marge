@@ -14,10 +14,13 @@ app.prepare().then(() => {
     const { pathname, query } = parsedUrl
     const parts = pathname.split('/')
     // next dev stuff
+    console.log(pathname.substr(0, 4), parts[1].split('.'))
     if (pathname.substr(0, 5) === '/next') {
       handle(req, res, parsedUrl)
-    } else if (parts.length === 3 && parts[1] === 'cat') {
-      app.render(req, res, '/categorie', { ...query, slug: parts[2] })
+    } else if (pathname.substr(0, 5) === '/cat.') {
+      let tmp = parts[1].split('.')
+      console.log({ ...query, slug: tmp[2], id: tmp[1] })
+      app.render(req, res, '/categorie', { ...query, slug: tmp[2], id: tmp[1] })
     } else if (pathname === '/b') {
       app.render(req, res, '/a', query)
     } else {
