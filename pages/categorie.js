@@ -37,7 +37,10 @@ const Categorie = ({
             <Head />
             <p>{data.categorie.description}</p>
             {data.allArticles.map(art => (
-              <div key={art.id}>{art.nom}</div>
+              <div key={art.id}>
+                {art.nom}{' '}
+                <img src={`${art.photos[1].url}?w=300&h=200&fit=crop`} />
+              </div>
             ))}
           </Layout>
         )

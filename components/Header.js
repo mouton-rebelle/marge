@@ -10,7 +10,7 @@ const Header = ({ data, router }) => (
       <Link href="/">
         <a>
           <span className="marge">marge</span>
-          <span className="ou">-ou-g</span>
+          <span className="ou">&nbsp;ou&nbsp;g</span>
           <span className="reve">reve</span>
         </a>
       </Link>

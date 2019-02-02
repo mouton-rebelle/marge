@@ -18,20 +18,25 @@ export const Nav = styled.nav`
 `
 export const NavTitle = styled.h1`
   margin: 0;
+  background: #000;
   a {
+    padding: 0 1em;
     color: #000;
     font-size: 1.2em;
     font-weight: 300;
     text-decoration: none;
     display: flex;
+    span {
+      line-height: 2em;
+    }
     .marge {
-      background: ${props => props.theme.green};
+      color: ${props => props.theme.green};
     }
     .ou {
-      background: ${props => props.theme.pink};
+      color: ${props => props.theme.roy};
     }
     .reve {
-      background: ${props => props.theme.roy};
+      color: ${props => props.theme.pink};
     }
   }
 `

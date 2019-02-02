@@ -3,8 +3,8 @@ export const theme = {
   main: 'tomato',
 
   green: '#25F48C',
-  pink: '#CB1D8B',
-  roy: '#DCA84D',
+  pink: '#EF2BA8',
+  roy: '#FFDD1B',
 
   background: 'slategray',
   primary: `HSL(${tint},90%,55%)`,
