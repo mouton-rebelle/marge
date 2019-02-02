@@ -1,24 +1,9 @@
 {
   "version": 2,
   "name": "marge",
-  "builds": [
-    { "src": "next.config.js", "use": "@now/next" },
-    { "src": "api/check.js", "use": "@now/node" },
-    {
-      "src": "api/categories.js",
-      "use": "@now/node",
-      "config": { "maxLambdaSize": "20mb" }
-    }
-  ],
+  "builds": [{ "src": "next.config.js", "use": "@now/next" }],
   "routes": [
-    { "src": "/api/check", "dest": "/api/check.js" },
-    { "src": "/api/categories", "dest": "/api/categories.js" }
+    { "src": "/cat/(?<slug>[^/]+)$", "dest": "/categorie?slug=$slug" }
   ],
-  "env": {
-    "ADMIN_EMAIL": "@admin_email",
-    "ADMIN_PASSWORD": "@admin_password",
-    "COOKIE_NAME": "@cookie_name",
-    "GOOGLE_CREDS": "@google_creds",
-    "JWT_SECRET": "@jwt_secret"
-  }
+  "env": {}
 }
