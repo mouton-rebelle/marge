@@ -17,11 +17,7 @@ const Header = ({ data, router }) => (
     </NavTitle>
     <Nav>
       {data.allCategories.map(c => (
-        <Link
-          passHref
-          href={`/categorie?slug=${c.slug}&id=${c.id}`}
-          as={`/cat.${c.id}.${c.slug}`}
-          key={c.id}>
+        <Link passHref href={`/categorie?slug=${c.slug}&id=${c.id}`} as={`/cat.${c.id}.${c.slug}`} key={c.id}>
           <NavItem>{c.titre}</NavItem>
         </Link>
       ))}

@@ -1,7 +1,8 @@
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 
 export const Container = styled.div`
-  background: ${props => props.theme.background};
+  background: ${props => props.theme.darkestPrimary};
+  color: ${props => props.theme.lightPrimary};
   min-height: 100vh;
   font-size: 16px;
 `
@@ -12,32 +13,72 @@ export const MargeHeader = styled.header`
 export const Nav = styled.nav`
   display: flex;
   background: ${props => props.theme.primary};
-  border-bottom: 1px solid ${props => props.theme.darkPrimary};
   margin-bottom: 1em;
   align-items: center;
+  justify-content: center;
 `
+const Neon = keyframes`
+  0%{
+    opacity: .3
+  }
+  37%{
+    opacity: .3
+  }
+  38%{
+    opacity: .5
+  }
+  39%{
+    opacity: .3
+  }
+  40%{
+    opacity: .3
+  }
+  41%{
+    opacity: .7
+  }
+  42%{
+    opacity: .3
+  }
+  43%{
+    opacity: 1
+  }
+  47%{
+    opacity: 1
+  }
+  49%{
+    opacity: .3
+  }
+  89%{
+    opacity: .3
+  }
+  91%{
+    opacity: 1
+  }
+  92%{
+    opacity: .3
+  }
+  100%{
+    opacity: .3
+  }
+
+`
+
 export const NavTitle = styled.h1`
   margin: 0;
-  background: #000;
+  background: ${props => props.theme.darkPrimary};
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-align: center;
   a {
-    padding: 0 1em;
-    color: #000;
+    padding: 0 1rem;
     font-size: 1.2em;
-    font-weight: 300;
+    font-weight: 500;
     text-decoration: none;
-    display: flex;
-    span {
-      line-height: 2em;
-    }
-    .marge {
-      color: ${props => props.theme.green};
-    }
+    color: ${props => props.theme.secondary};
     .ou {
-      color: ${props => props.theme.roy};
+      animation: ${Neon} 11s ease-in-out infinite;
     }
-    .reve {
-      color: ${props => props.theme.pink};
-    }
+
   }
 `
 export const NavItem = styled.a`
@@ -49,7 +90,6 @@ export const NavItem = styled.a`
   margin: 0 0.5em;
   font-size: 0.9em;
   text-decoration: none;
-  border: 1px solid ${props => props.theme.darkPrimary};
   ${props =>
     props.logout &&
     css`

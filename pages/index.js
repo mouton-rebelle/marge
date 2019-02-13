@@ -2,7 +2,7 @@ import Layout from '../components/Layout'
 
 const Index = () => (
   <Layout>
-    <p>Hello Next.js</p>
+    <p>Site en travaux... wait for it</p>
   </Layout>
 )
 

@@ -3,7 +3,8 @@ import Layout from '../components/Layout'
 import { Query } from 'react-apollo'
 import { withRouter } from 'next/router'
 import gql from 'graphql-tag'
-
+import Thumb from '../components/ArticleThumb'
+import {ThbContainer} from '../components/styled/thumb'
 const FETCH_CATEGORY_BY_SLUG = gql`
   query FetchBySlug($slug: String!, $id: ItemId!) {
     categorie(filter: { slug: { eq: $slug } }) {
@@ -15,7 +16,7 @@ const FETCH_CATEGORY_BY_SLUG = gql`
     allArticles(filter: { categorie: { eq: $id } }) {
       id
       nom
-      photos {
+      thumb {
         url
       }
     }
@@ -36,12 +37,10 @@ const Categorie = ({
           <Layout>
             <Head />
             <p>{data.categorie.description}</p>
-            {data.allArticles.map(art => (
-              <div key={art.id}>
-                {art.nom}{' '}
-                <img src={`${art.photos[1].url}?w=300&h=200&fit=crop`} />
-              </div>
-            ))}
+            <ThbContainer>
+            {data.allArticles.map(art => <Thumb {...art} key={art.id}/>)}
+            </ThbContainer>
+
           </Layout>
         )
       }}
