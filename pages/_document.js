@@ -24,14 +24,6 @@ export default class MyDocument extends Document {
       <html>
         <Head>
           {/* Step 5: Output the styles in the head  */}
-          <style>
-            {`body{
-              font-family: Arial;
-              font-size: 14px;
-              margin: 0;
-              padding: 0;
-            }`}
-          </style>
           {this.props.styleTags}
         </Head>
         <body>

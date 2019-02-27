@@ -10,7 +10,7 @@ export const Thb = styled.a`
   border:2px solid ${props => props.theme.primary};
   color: ${props => props.theme.darkerPrimary};
   &:hover, &:active{
-    border:1px solid ${props => props.theme.secondary};
+    border-color:${props => props.theme.secondary};
     ${TmbTitle} {
       background: ${props => props.theme.secondary};    
     }
