@@ -4,24 +4,25 @@ export const TmbTitle = styled.h3`
   margin: 0;
   padding: 0.3em;
   font-size: 1.1em;
-  background: ${props => props.theme.primary}; 
 `
 export const Thb = styled.a`
-  border:2px solid ${props => props.theme.primary};
-  color: ${props => props.theme.darkerPrimary};
-  &:hover, &:active{
-    border:1px solid ${props => props.theme.secondary};
-    ${TmbTitle} {
-      background: ${props => props.theme.secondary};    
-    }
-  }
-  text-decoration: none;
+  background: ${props => props.theme.primary}; 
   border-radius:10px;
-  flex: 0 0 200px;
-  margin: 1em;
+  padding: 2px;
+  display: block;
+  color: ${props => props.theme.darkerPrimary};
+  flex: 0 0 calc(375px - 2em) ;
+  margin: 0 1em 1em 1em;
+  outline: none;
   overflow: hidden;
+  text-decoration: none;
+  &:hover, &:active{
+    background: ${props => props.theme.secondary};    
+  }
   img{
-    vertical-align:middle;
+    display: block;
+    width: calc(371px - 2em);
+    border-radius: 9px;
   }
 `
 

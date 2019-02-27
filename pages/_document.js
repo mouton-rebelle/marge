@@ -30,7 +30,11 @@ export default class MyDocument extends Document {
               font-size: 14px;
               margin: 0;
               padding: 0;
-            }`}
+            }
+            *, *:before, *:after {
+              box-sizing: border-box;
+            }
+            `}
           </style>
           {this.props.styleTags}
         </Head>

@@ -71,7 +71,7 @@ export const NavTitle = styled.h1`
   text-align: center;
   a {
     padding: 0 1rem;
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: 500;
     text-decoration: none;
     color: ${props => props.theme.secondary};

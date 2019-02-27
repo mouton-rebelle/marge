@@ -15,6 +15,7 @@ const FETCH_CATEGORY_BY_SLUG = gql`
     }
     allArticles(filter: { categorie: { eq: $id } }) {
       id
+      slug
       nom
       thumb {
         url
