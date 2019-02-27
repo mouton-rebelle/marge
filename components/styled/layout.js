@@ -80,7 +80,7 @@ export const NavTitle = styled.h1`
   text-align: center;
   a {
     padding: 0 1rem;
-    font-size: 9vw;
+    font-size: 1.1em;
     @media screen and (min-width: 1000px) {
       font-size: 40px;
     }
