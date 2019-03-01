@@ -9,7 +9,7 @@ const FETCH_ARTICLE_BY_ID = gql`
   query FetchBySlug($slug: String!) {
     article(filter: { slug: { eq: $slug } }) {
       id
-      nom
+      name
       slug
     }
   }
@@ -28,7 +28,7 @@ const Article = ({
         return (
           <Layout>
             <Head />
-            <p>{data.article.nom}</p>
+            <p>{data.article.name}</p>
 
           </Layout>
         )

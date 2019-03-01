@@ -7,16 +7,16 @@ import Thumb from '../components/ArticleThumb'
 import {ThbContainer} from '../components/styled/thumb'
 const FETCH_CATEGORY_BY_SLUG = gql`
   query FetchBySlug($slug: String!, $id: ItemId!) {
-    categorie(filter: { slug: { eq: $slug } }) {
+    category(filter: { slug: { eq: $slug } }) {
       id
-      titre
+      title
       description
       slug
     }
-    allArticles(filter: { categorie: { eq: $id } }) {
+    allArticles(filter: { category: { eq: $id } }) {
       id
       slug
-      nom
+      name
       thumb {
         url
       }
@@ -37,7 +37,7 @@ const Categorie = ({
         return (
           <Layout>
             <Head />
-            <p>{data.categorie.description}</p>
+            <p>{data.category.description}</p>
             <ThbContainer>
             {data.allArticles.map(art => <Thumb {...art} key={art.id}/>)}
             </ThbContainer>

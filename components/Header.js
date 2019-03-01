@@ -18,7 +18,7 @@ const Header = ({ data, router }) => (
     <Nav>
       {data.allCategories.map(c => (
         <Link passHref href={`/categorie?slug=${c.slug}&id=${c.id}`} as={`/cat.${c.id}.${c.slug}`} key={c.id}>
-          <NavItem>{c.titre}</NavItem>
+          <NavItem>{c.title}</NavItem>
         </Link>
       ))}
     </Nav>
@@ -30,7 +30,7 @@ export default withRouter(
     query {
       allCategories {
         id
-        titre
+        title
         description
         slug
       }
