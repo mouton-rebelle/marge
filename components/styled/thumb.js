@@ -11,14 +11,12 @@ export const Thb = styled.a`
   padding: 2px;
   display: block;
   color: ${props => props.theme.darkerPrimary};
-  flex: 0 0 calc(375px - 2em) ;
+  flex: 0 0 calc(371px - 2em) ;
   margin: 0 1em 1em 1em;
   outline: none;
   overflow: hidden;
   text-decoration: none;
   &:hover, &:active{
-    border-color:${props => props.theme.secondary};
-    ${TmbTitle} {
     background: ${props => props.theme.secondary};    
   }
   img{

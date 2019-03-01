@@ -3,7 +3,7 @@ const dpr = [1,2,3]
 import {Thb, TmbTitle} from './styled/thumb'
 const Thumb = ({thumb, slug, name}) => {
   return (
-    <Link passHref href={`/article?slug=${slug}`}>
+    <Link passHref href={`/article?slug=${slug}`} as={`/article?slug=${slug}`}>
     <Thb>
       <TmbTitle>{name}</TmbTitle>
       <img

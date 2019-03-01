@@ -3,14 +3,15 @@ import Layout from '../components/Layout'
 import { Query } from 'react-apollo'
 import { withRouter } from 'next/router'
 import gql from 'graphql-tag'
-import Thumb from '../components/ArticleThumb'
-import {ThbContainer} from '../components/styled/thumb'
 const FETCH_ARTICLE_BY_ID = gql`
   query FetchBySlug($slug: String!) {
     article(filter: { slug: { eq: $slug } }) {
       id
       name
       slug
+      tags {
+        name
+      }
     }
   }
 `
@@ -29,7 +30,7 @@ const Article = ({
           <Layout>
             <Head />
             <p>{data.article.name}</p>
-
+            {data.article.tags.map(t => t.name)}
           </Layout>
         )
       }}
