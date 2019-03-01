@@ -1,11 +1,20 @@
-import styled, { css, keyframes } from 'styled-components'
+import styled, { css, keyframes, createGlobalStyle } from 'styled-components'
 
 export const Container = styled.div`
-  background: ${props => props.theme.darkestPrimary};
   color: ${props => props.theme.lightPrimary};
-  min-height: 100vh;
   font-size: 16px;
 `
+
+export const GlobalStyle = createGlobalStyle`
+  body{
+    background: ${props => props.theme.darkestPrimary};
+    font-family: Arial;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+  }
+`
+
 export const MargeHeader = styled.header`
   display: flex;
   flex-direction: column;
@@ -72,6 +81,9 @@ export const NavTitle = styled.h1`
   a {
     padding: 0 1rem;
     font-size: 1.1em;
+    @media screen and (min-width: 1000px) {
+      font-size: 40px;
+    }
     font-weight: 500;
     text-decoration: none;
     color: ${props => props.theme.secondary};

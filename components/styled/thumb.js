@@ -17,6 +17,8 @@ export const Thb = styled.a`
   overflow: hidden;
   text-decoration: none;
   &:hover, &:active{
+    border-color:${props => props.theme.secondary};
+    ${TmbTitle} {
     background: ${props => props.theme.secondary};    
   }
   img{
