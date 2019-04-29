@@ -1,5 +1,5 @@
 import Link from 'next/link'
-const dpr = [1,2,3]
+const sizes = [400, 800, 1600]
 import {Thb, TmbTitle} from './styled/thumb'
 const Thumb = ({thumb, slug, name}) => {
   return (
@@ -7,7 +7,8 @@ const Thumb = ({thumb, slug, name}) => {
     <Thb>
       <TmbTitle>{name}</TmbTitle>
       <img
-        srcSet={dpr.map(d => `${thumb.url}?w=375&dpr=${d} ${d}x`).join(', ')}
+        srcSet={sizes.map(s => `${thumb.url}?w=${s} ${s}w`).join(', ')}
+        sizes="(min-width: 800px) 50vw, 100vw"
         src={ `${thumb.url}?fit=crop&h=200&w=200`}
       />
     </Thb>

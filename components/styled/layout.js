@@ -18,6 +18,8 @@ export const GlobalStyle = createGlobalStyle`
 export const MargeHeader = styled.header`
   display: flex;
   flex-direction: column;
+  position: sticky;
+  top:0;
 `
 export const Nav = styled.nav`
   display: flex;
