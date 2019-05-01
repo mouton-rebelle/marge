@@ -8,6 +8,8 @@
     "apollo-client": "^2.4.12",
     "graphql": "^14.1.1",
     "isomorphic-unfetch": "^3.0.0",
+    "luxon": "^1.12.1",
+    "marked": "^0.6.2",
     "next": "^8.0.0-canary.18",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",

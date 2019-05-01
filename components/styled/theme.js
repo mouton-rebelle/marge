@@ -15,6 +15,5 @@ export const theme = {
   darkerPrimary: `HSL(${hue},80%,15%)`,
   darkestPrimary: `HSL(${hue},10%,10%)`,
   lightPrimary: `HSL(${hue},20%,80%)`,
-  pink: '#EF2BA8',
   secondary: `HSL(${offset(hue, 99)},100%,55%)`,
 }

@@ -1,10 +1,8 @@
 import Link from 'next/link'
-import { graphql } from 'react-apollo'
-import gql from 'graphql-tag'
 import { withRouter } from 'next/router'
-import { Nav, NavTitle, NavItem, MargeHeader } from './styled/layout'
+import { NavTitle, MargeHeader } from './styled/layout'
 
-const Header = ({ data, router }) => (
+const Header = ({ router }) => (
   <MargeHeader>
     <NavTitle onClick={() => router.push('/')}>
       <Link href="/">
@@ -15,25 +13,7 @@ const Header = ({ data, router }) => (
         </a>
       </Link>
     </NavTitle>
-    <Nav>
-      {data.allCategories.map(c => (
-        <Link passHref href={`/categorie?slug=${c.slug}&id=${c.id}`} as={`/cat.${c.id}.${c.slug}`} key={c.id}>
-          <NavItem>{c.title}</NavItem>
-        </Link>
-      ))}
-    </Nav>
   </MargeHeader>
 )
 
-export default withRouter(
-  graphql(gql`
-    query {
-      allCategories {
-        id
-        title
-        description
-        slug
-      }
-    }
-  `)(Header)
-)
+export default withRouter(Header)

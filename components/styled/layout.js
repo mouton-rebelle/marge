@@ -18,6 +18,7 @@ export const GlobalStyle = createGlobalStyle`
 export const MargeHeader = styled.header`
   display: flex;
   flex-direction: column;
+  border-bottom: 1em solid ${props => props.theme.primary};
   position: sticky;
   top:0;
 `
@@ -123,5 +124,27 @@ export const NavPad = styled.span`
 `
 export const Content = styled.section`
   max-width: 1200px;
-  margin: 2em;
+  margin: 1em;
+`
+export const Block = styled.div`
+  background-color: ${props => props.theme.darkestPrimary};
+  border: 1px solid ${props => props.theme.secondary};
+  margin: 1em;
+  padding: 5px;
+  border-radius: 5px;
+  a{
+    color: ${props => props.theme.darkestPrimary};
+    background-color: ${props => props.theme.primary};
+    text-decoration: none;
+  }
+  p{
+    margin: 1em;
+  }
+  color: ${props => props.theme.secondary};
+`
+export const AboutContainer = styled.section`
+`
+export const AboutTitle = styled.h3`
+  text-align: center;
+  font-size: 18px;
 `
