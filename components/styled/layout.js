@@ -124,7 +124,8 @@ export const NavPad = styled.span`
 `
 export const Content = styled.section`
   max-width: 1200px;
-  margin: 1em;
+  margin: 1em auto;
+  position:relative;
 `
 export const Block = styled.div`
   background-color: ${props => props.theme.darkestPrimary};
@@ -148,3 +149,32 @@ export const AboutTitle = styled.h3`
   text-align: center;
   font-size: 18px;
 `
+ export const EventDate = styled.div`
+  display:flex;
+  flex-direction: column;
+  box-shadow:0 0 0 2px ${props => props.theme.secondary};
+  strong{
+    background: ${props => props.theme.secondary};
+    color: ${props => props.theme.darkestPrimary};
+  }
+  span{
+    background-color: ${props => props.theme.darkestPrimary};
+  }
+  width: 2.5em;
+  text-align: center;
+  border-radius:5px;
+  overflow: hidden;
+ `
+
+ export const BlockWithEvent = styled(Block)`
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  div{
+    flex-grow: 1;
+  }
+  ${EventDate} {
+    flex: 0 0 2.5em;
+    margin: 0 0 0 1em;
+  }
+ `

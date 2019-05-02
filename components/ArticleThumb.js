@@ -7,7 +7,7 @@ const Thumb = ({thumb, slug, name}) => {
     <Thb>
       <TmbTitle>{name}</TmbTitle>
       <img
-        srcSet={sizes.map(s => `${thumb.url}?w=${s} ${s}w`).join(', ')}
+        srcSet={sizes.map(s => `${thumb.url}?w=${s}&h=${s}&fit=crop ${s}w`).join(', ')}
         sizes="(min-width: 800px) 50vw, 100vw"
         src={ `${thumb.url}?fit=crop&h=200&w=200`}
       />
