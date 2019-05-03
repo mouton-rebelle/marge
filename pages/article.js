@@ -1,16 +1,36 @@
 import Head from 'next/head'
 import Layout from '../components/Layout'
+import { ArticleComp } from '../components/Article'
 import { Query } from 'react-apollo'
 import { withRouter } from 'next/router'
 import gql from 'graphql-tag'
+
+
 const FETCH_ARTICLE_BY_ID = gql`
   query FetchBySlug($slug: String!) {
     article(filter: { slug: { eq: $slug } }) {
       id
-      name
       slug
+      sold
+      name
+      category {
+        title
+        description
+      }
+      pictures {
+        url
+      }
+      thumb {
+        url
+      }
       tags {
         name
+        slug
+      }
+      support {
+        name
+        description
+        price
       }
     }
   }
@@ -29,8 +49,7 @@ const Article = ({
         return (
           <Layout>
             <Head />
-            <p>{data.article.name}</p>
-            {data.article.tags.map(t => t.name)}
+            <ArticleComp article={data.article} />
           </Layout>
         )
       }}

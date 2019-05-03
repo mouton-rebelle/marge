@@ -2,7 +2,7 @@ import Layout from '../components/Layout'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import Thumb from '../components/ArticleThumb'
-import {About} from '../components/About'
+// import {About} from '../components/About'
 import { ThbContainer } from '../components/styled/thumb'
 
 const FETCH_HOME_DATA = gql`
@@ -65,7 +65,7 @@ const Index = () => (
       
       return (
         <Layout>
-        <About {...data.about} />
+        {/* <About {...data.about} /> */}
           <ThbContainer>
             {data.allArticles.map(art => (
               <Thumb {...art} key={art.id} />
