@@ -4,19 +4,16 @@ import { DateTime } from 'luxon'
 
 import { AboutContainer, AboutTitle, Block, BlockWithEvent, EventDate } from './styled/layout'
 
-export const About = ({title, content}) => {
+export const About = ({ title, content }) => {
   const now = DateTime.local()
   return (
-    <AboutContainer>
-      <AboutTitle>
-        {title}
-      </AboutTitle>
+    <React.Fragment>
       {content
         .filter(block => block._modelApiKey === 'introduction')
         .map((block, key) => (
-          <Block key={key} dangerouslySetInnerHTML={{__html:Marked(block.text)}}/>
+          <Block key={key} dangerouslySetInnerHTML={{ __html: Marked(block.text) }} />
         ))}
-        {content
+      {content
         .filter(block => block._modelApiKey === 'event')
         .map(block => {
           block.date = DateTime.fromISO(block.date)
@@ -26,14 +23,13 @@ export const About = ({title, content}) => {
         .map((block, key) => (
           <BlockWithEvent key={key}>
             <EventDate>
-              <span>{block.date.toLocaleString({day: 'numeric'})}</span>
-              <strong>{block.date.toLocaleString({month: 'short'})}</strong>
+              <span>{block.date.toLocaleString({ day: 'numeric' })}</span>
+              <strong>{block.date.toLocaleString({ month: 'short' })}</strong>
             </EventDate>
-            
-            <div dangerouslySetInnerHTML={{__html:Marked(block.text)}}/>
-          </BlockWithEvent>
-        ))}            
-    </AboutContainer>
 
+            <div dangerouslySetInnerHTML={{ __html: Marked(block.text) }} />
+          </BlockWithEvent>
+        ))}
+    </React.Fragment>
   )
 }

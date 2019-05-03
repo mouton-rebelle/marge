@@ -1,7 +1,7 @@
 import Link from 'next/link'
 const sizes = [400, 800, 1600]
 import { Thb, TbhContent, TmbTitle } from './styled/thumb'
-const Thumb = ({ thumb, slug, name }) => {
+const Thumb = ({ thumb, slug, name, myOrder }) => {
   const ratio = thumb.height / thumb.width
   console.log(ratio)
   let nbRows = 1
@@ -10,7 +10,7 @@ const Thumb = ({ thumb, slug, name }) => {
   if (ratio > 1.3) nbRows = 4
   return (
     <Link passHref href={`/article?slug=${slug}`} as={`/article?slug=${slug}`}>
-      <Thb nbRows={nbRows}>
+      <Thb nbRows={nbRows} myOrder={myOrder}>
         <TbhContent>
           <TmbTitle>{name}</TmbTitle>
         </TbhContent>

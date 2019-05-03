@@ -2,12 +2,19 @@ import styled from 'styled-components'
 
 export const ArticleGrid = styled.article`
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 1em;
+  grid-gap: 1em;
+  grid-template-columns: 200px repeat(3, minmax(0, 1fr));
   grid-template-rows: auto;
   grid-template-areas:
-    "thumb title title title"
-    "thumb tags tags tags"
-    "thumb support support support";
+    'thumb title title title'
+    'thumb tags tags tags'
+    'thumb support support support';
+`
+export const ArticlePicture = styled.img`
+  grid-column-end: span 4;
+  border-radius: 1em;
+  width: 100%;
 `
 
 export const ArticleName = styled.h2`
@@ -27,10 +34,10 @@ export const ArticleThumb = styled.img`
 
 export const ArticleTags = styled.ul`
   grid-area: tags;
-  padding:0;
-  li{
+  padding: 0;
+  li {
     display: inline;
-    a{
+    a {
       display: inline-block;
       margin-right: 1em;
       background: ${props => props.theme.primary};
@@ -38,12 +45,11 @@ export const ArticleTags = styled.ul`
       color: ${props => props.theme.darkestPrimary};
       text-decoration: none;
       padding: 2px 5px;
-
     }
   }
 `
 
 export const ArticleSupport = styled.div`
   grid-area: support;
-  color: ${props => props.theme.lightPrimary}
+  color: ${props => props.theme.lightPrimary};
 `

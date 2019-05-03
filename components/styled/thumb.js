@@ -28,6 +28,7 @@ export const TbhContent = styled.span`
 export const Thb = styled.a`
   position: relative;
   display: block;
+  order: ${props => props.myOrder};
   color: ${props => props.theme.darkerPrimary};
   outline: none;
   grid-row-end: span ${props => props.nbRows};

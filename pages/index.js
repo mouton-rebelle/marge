@@ -67,10 +67,10 @@ const Index = () => (
 
       return (
         <Layout>
-          <About {...data.about} />
           <ThbContainer>
-            {data.allArticles.map(art => (
-              <Thumb {...art} key={art.id} />
+            <About {...data.about} />
+            {data.allArticles.map((art, i) => (
+              <Thumb {...art} key={art.id} myOrder={i} />
             ))}
           </ThbContainer>
         </Layout>

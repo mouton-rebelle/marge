@@ -1,7 +1,7 @@
 import React from 'react'
-import { ArticleGrid, ArticleName, ArticleThumb, ArticleTags, ArticleSupport } from './styled/article'
+import { ArticleGrid, ArticleName, ArticleThumb, ArticleTags, ArticleSupport, ArticlePicture } from './styled/article'
 
-// const sizes = [400, 800, 1600]
+const sizes = [400, 800, 1600]
 const thumbSizes = [100, 200, 400]
 
 export const ArticleComp = ({ article }) => {
@@ -15,12 +15,20 @@ export const ArticleComp = ({ article }) => {
       />
       <ArticleTags>
         {article.tags.map(t => (
-          <li key={t.slug}><a href={`/?tag=${t.slug}`}>{t.name}</a></li>
+          <li key={t.slug}>
+            <a href={`/?tag=${t.slug}`}>{t.name}</a>
+          </li>
         ))}
       </ArticleTags>
-      <ArticleSupport>
-        {article.support.name}
-      </ArticleSupport>
+      <ArticleSupport>{article.support.name}</ArticleSupport>
+      {article.pictures.map((pic, key) => (
+        <ArticlePicture
+          key={key}
+          srcSet={sizes.map(s => `${pic.url}?w=${s} ${s}w`).join(', ')}
+          sizes="(min-width: 800px) 50vw, 80vw"
+          src={`${pic.url}?&w=600`}
+        />
+      ))}
     </ArticleGrid>
   )
 }
