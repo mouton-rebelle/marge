@@ -20,7 +20,8 @@ export const MargeHeader = styled.header`
   flex-direction: column;
   border-bottom: 1em solid ${props => props.theme.primary};
   position: sticky;
-  top:0;
+  top: 0;
+  z-index: 9;
 `
 export const Nav = styled.nav`
   display: flex;
@@ -93,7 +94,6 @@ export const NavTitle = styled.h1`
     .ou {
       animation: ${Neon} 11s ease-in-out infinite;
     }
-
   }
 `
 export const NavItem = styled.a`
@@ -125,7 +125,7 @@ export const NavPad = styled.span`
 export const Content = styled.section`
   max-width: 1200px;
   margin: 1em auto;
-  position:relative;
+  position: relative;
 `
 export const Block = styled.div`
   background-color: ${props => props.theme.darkestPrimary};
@@ -133,48 +133,47 @@ export const Block = styled.div`
   margin: 1em;
   padding: 5px;
   border-radius: 5px;
-  a{
+  a {
     color: ${props => props.theme.darkestPrimary};
     background-color: ${props => props.theme.primary};
     text-decoration: none;
   }
-  p{
+  p {
     margin: 1em;
   }
   color: ${props => props.theme.secondary};
 `
-export const AboutContainer = styled.section`
-`
+export const AboutContainer = styled.section``
 export const AboutTitle = styled.h3`
   text-align: center;
   font-size: 18px;
 `
- export const EventDate = styled.div`
-  display:flex;
+export const EventDate = styled.div`
+  display: flex;
   flex-direction: column;
-  box-shadow:0 0 0 2px ${props => props.theme.secondary};
-  strong{
+  box-shadow: 0 0 0 2px ${props => props.theme.secondary};
+  strong {
     background: ${props => props.theme.secondary};
     color: ${props => props.theme.darkestPrimary};
   }
-  span{
+  span {
     background-color: ${props => props.theme.darkestPrimary};
   }
   width: 2.5em;
   text-align: center;
-  border-radius:5px;
+  border-radius: 5px;
   overflow: hidden;
- `
+`
 
- export const BlockWithEvent = styled(Block)`
+export const BlockWithEvent = styled(Block)`
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   align-items: center;
-  div{
+  div {
     flex-grow: 1;
   }
   ${EventDate} {
     flex: 0 0 2.5em;
     margin: 0 0 0 1em;
   }
- `
+`

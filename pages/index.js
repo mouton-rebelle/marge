@@ -21,6 +21,8 @@ const FETCH_HOME_DATA = gql`
       }
       thumb {
         url
+        width
+        height
       }
       tags {
         name
