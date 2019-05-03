@@ -1,0 +1,21 @@
+{
+  "__schema": {
+    "types": [
+      {
+        "kind": "UNION",
+        "name": "AboutModelContentField",
+        "possibleTypes": [
+          {
+            "name": "EventRecord"
+          },
+          {
+            "name": "IntroductionRecord"
+          },
+          {
+            "name": "ProjectRecord"
+          }
+        ]
+      }
+    ]
+  }
+}

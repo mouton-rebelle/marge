@@ -1,0 +1,10 @@
+overwrite: true
+schema: 
+  - https://graphql.datocms.com:
+      headers: 
+        Authorization: 'Bearer 2f0eca7bed9b8857524d369ce68720'
+documents: "**/*.graphql"
+generates:
+  ./fragmentTypes.json:
+    plugins:
+      - fragment-matcher
