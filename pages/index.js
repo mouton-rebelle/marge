@@ -5,16 +5,17 @@ import Thumb from '../components/ArticleThumb'
 import { About } from '../components/About'
 import { ThbContainer } from '../components/styled/thumb'
 
+const NbPerPage = 30
+
 const FETCH_HOME_DATA = gql`
-  query FetchHomeData {
-    allArticles(first: 20) {
+  query FetchHomeData($skip: IntType, $first: IntType) {
+    allArticles(first: $first, skip: $skip) {
       id
       slug
       sold
       name
       category {
         title
-        description
       }
       pictures {
         url
@@ -58,9 +59,10 @@ const FETCH_HOME_DATA = gql`
     }
   }
 `
-
+const page = 2
+console.log({ skip: (page - 1) * NbPerPage, first: NbPerPage })
 const Index = () => (
-  <Query query={FETCH_HOME_DATA}>
+  <Query query={FETCH_HOME_DATA} variables={{ skip: (page - 1) * NbPerPage, first: NbPerPage }}>
     {({ loading, error, data }) => {
       if (loading) return null
       if (error) return `Error!: ${error}`
