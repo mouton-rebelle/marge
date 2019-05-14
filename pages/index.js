@@ -1,15 +1,16 @@
+import React from 'react'
 import Layout from '../components/Layout'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import Thumb from '../components/ArticleThumb'
 import { About } from '../components/About'
-import { ThbContainer } from '../components/styled/thumb'
+import { InfiniteLoader } from '../components/Infinite'
 
-const NbPerPage = 30
+const PAGE_SIZE = 20
 
 const FETCH_HOME_DATA = gql`
-  query FetchHomeData($skip: IntType, $first: IntType) {
-    allArticles(first: $first, skip: $skip) {
+  query FetchHomeData($skip: IntType) {
+    allArticles(first: ${PAGE_SIZE}, skip: $skip) {
       id
       slug
       sold
@@ -59,26 +60,42 @@ const FETCH_HOME_DATA = gql`
     }
   }
 `
-const page = 2
-console.log({ skip: (page - 1) * NbPerPage, first: NbPerPage })
-const Index = () => (
-  <Query query={FETCH_HOME_DATA} variables={{ skip: (page - 1) * NbPerPage, first: NbPerPage }}>
-    {({ loading, error, data }) => {
-      if (loading) return null
-      if (error) return `Error!: ${error}`
-
-      return (
-        <Layout>
-          <ThbContainer>
-            <About {...data.about} />
-            {data.allArticles.map((art, i) => (
-              <Thumb {...art} key={art.id} myOrder={i} />
-            ))}
-          </ThbContainer>
-        </Layout>
-      )
-    }}
-  </Query>
-)
+const Index = () => {
+  const [noMoreData, uppdateNoMoreData] = React.useState(false)
+  return (
+    <Query query={FETCH_HOME_DATA} variables={{ skip: 0 }} notifyOnNetworkStatusChange>
+      {({ loading, data, fetchMore }) => {
+        return (
+          <Layout>
+            <InfiniteLoader
+              noMoreData={noMoreData}
+              loading={loading}
+              onLoadMore={() => {
+                fetchMore({
+                  variables: {
+                    skip: data.allArticles.length
+                  },
+                  updateQuery: (prev, { fetchMoreResult }) => {
+                    if (!fetchMoreResult) return prev
+                    if (fetchMoreResult.allArticles.length < PAGE_SIZE) {
+                      uppdateNoMoreData(true)
+                    }
+                    return Object.assign({}, prev, {
+                      allArticles: [...prev.allArticles, ...fetchMoreResult.allArticles]
+                    })
+                  }
+                })
+              }}>
+              <About {...data.about} />
+              {data.allArticles.map((art, i) => (
+                <Thumb {...art} key={art.id} myOrder={i} />
+              ))}
+            </InfiniteLoader>
+          </Layout>
+        )
+      }}
+    </Query>
+  )
+}
 
 export default Index

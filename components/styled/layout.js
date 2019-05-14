@@ -193,6 +193,16 @@ export const EventDate = styled.div`
 export const BlockWithEvent = styled(Block)`
   grid-row-end: span 4;
   grid-column-end: span 2;
+  @media screen and (max-width: 900px) {
+    order: 1;
+  }
+  @media screen and (max-width: 600px) {
+    order: 2;
+  }
+  @media screen and (max-width: 400px) {
+    grid-row-end: span 4;
+    grid-column-end: span 1;
+  }
   order: 2;
   display: flex;
   flex-direction: row;

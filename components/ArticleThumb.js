@@ -3,7 +3,6 @@ const sizes = [400, 800, 1600]
 import { Thb, TbhContent, TmbTitle } from './styled/thumb'
 const Thumb = ({ thumb, slug, name, myOrder }) => {
   const ratio = thumb.height / thumb.width
-  console.log(ratio)
   let nbRows = 1
   if (ratio > 0.6) nbRows = 2
   if (ratio >= 1) nbRows = 3
@@ -16,7 +15,7 @@ const Thumb = ({ thumb, slug, name, myOrder }) => {
         </TbhContent>
         <img
           srcSet={sizes.map(s => `${thumb.url}?w=${s} ${s}w`).join(', ')}
-          sizes="(min-width: 800px) 50vw, 100vw"
+          sizes="(max-width: 1200px) 320px, 50vw"
           src={`${thumb.url}?w=200`}
         />
       </Thb>

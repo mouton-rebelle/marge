@@ -2,9 +2,9 @@ import React from 'react'
 import Marked from 'marked'
 import { DateTime } from 'luxon'
 
-import { AboutContainer, AboutTitle, Block, BlockWithEvent, EventDate } from './styled/layout'
+import { Block, BlockWithEvent, EventDate } from './styled/layout'
 
-export const About = ({ title, content }) => {
+export const About = ({ content }) => {
   const now = DateTime.local()
   return (
     <React.Fragment>

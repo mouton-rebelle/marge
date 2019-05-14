@@ -10,7 +10,7 @@ export const ArticleComp = ({ article }) => {
       <ArticleName>{article.name}</ArticleName>
       <ArticleThumb
         srcSet={thumbSizes.map(s => `${article.thumb.url}?w=${s}&h=${s}&fit=crop ${s}w`).join(', ')}
-        sizes="(min-width: 800px) 50vw, 100vw"
+        sizes="(max-width: 400px) 100px, 200px"
         src={`${article.thumb.url}?fit=crop&h=200&w=200`}
       />
       <ArticleTags>
@@ -25,7 +25,7 @@ export const ArticleComp = ({ article }) => {
         <ArticlePicture
           key={key}
           srcSet={sizes.map(s => `${pic.url}?w=${s} ${s}w`).join(', ')}
-          sizes="(min-width: 800px) 50vw, 80vw"
+          sizes="90vw"
           src={`${pic.url}?&w=600`}
         />
       ))}
