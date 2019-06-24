@@ -31,12 +31,12 @@ export const LogoContainer = styled.div`
     flex: 1 0 0;
     background: linear-gradient(
       ${props => props.theme.primary} 0%,
-      ${props => props.theme.primary} 11%,
-      ${props => props.theme.darkPrimary} 11%,
-      ${props => props.theme.darkPrimary} 24%,
-      rgba(0, 0, 0, 0.5) 24%,
-      rgba(0, 0, 0, 0.2) 27%,
-      transparent 31%
+      ${props => props.theme.primary} 33%,
+      ${props => props.theme.darkPrimary} 33%,
+      ${props => props.theme.darkPrimary} 42%,
+      rgba(0, 0, 0, 0.5) 42%,
+      rgba(0, 0, 0, 0.2) 44%,
+      rgba(0, 0, 0, 0) 45%
     );
     &:last-child {
       background: linear-gradient(

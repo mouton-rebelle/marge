@@ -2,6 +2,11 @@ import Link from 'next/link'
 import { withRouter } from 'next/router'
 import { NavTitle, MargeHeader, LogoContainer } from './styled/layout'
 import { theme } from './styled/theme'
+const BASELINE = 80
+const CURVE1H = BASELINE - 40
+const SIDEMARGIN = 10
+const HEIGHT = 170
+const WIDTH = 1600
 const Header = ({ router }) => (
   <MargeHeader>
     <LogoContainer>
@@ -14,19 +19,33 @@ const Header = ({ router }) => (
             <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
           </filter>
         </defs>
-        <g transform="translate(0.000000, -50.000000)">
-          <path
-            d="M0.005,151.000386 C311,151.000386 409.898,29.7503861 811,30.0003861 C1211,30.0003861 1311,151.000386 1600,151.000386 L1600,228.000386 L0,228.000386 C0.1,30.0003861 0.005,180.000386 0.005,151.000386 L0.005,151.000386 Z"
-            fill={theme.darkPrimary}
-            filter="url(#f3)"
-            transform="translate(800.000000, 129.000193) scale(-1, -1) translate(-800.000000, -129.000193) "
-          />
-          <path
-            d="M811,0.000386067216 C1211,0.000386067216 1311,105.150421 1600,105.150421 L1600,198.000386 L0,198.000386 C0.1,0.000386067216 0.005,150.000386 0.005,121.000386 C311,121.000386 409.898,-0.249613933 811,0.000386067216 Z"
-            fill={theme.primary}
-            transform="translate(800.000000, 99.000193) scale(1, -1) translate(-800.000000, -99.000193)"
-          />
-        </g>
+        <path
+          d={`M 0 0
+                v ${BASELINE}
+                h ${SIDEMARGIN}
+                C 10 ${BASELINE}, 300 ${CURVE1H}, 420 ${BASELINE}
+                S 500 ${HEIGHT}, 800 ${HEIGHT}
+                S 1100 ${BASELINE}, 1280 ${CURVE1H}
+                S 1500 30, 1600 30
+                H 1600
+                V 0
+                Z`}
+          fill={theme.darkPrimary}
+          filter="url(#f3)"
+        />
+        <path
+          d={`M 0 0
+                v ${BASELINE - 20}
+                h ${SIDEMARGIN}
+                C 10 ${BASELINE - 25}, 300 ${CURVE1H - 20}, 410 ${BASELINE - 20}
+                S 480 ${HEIGHT - 10}, 800 ${HEIGHT - 20}
+                S 1140 ${BASELINE - 30}, 1300 ${CURVE1H - 15}
+                S 1500 20, 1600 20
+                H 1600
+                V 0
+                Z`}
+          fill={theme.primary}
+        />
       </svg>
       <span />
     </LogoContainer>
