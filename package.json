@@ -10,7 +10,7 @@
     "isomorphic-unfetch": "^3.0.0",
     "luxon": "^1.13.2",
     "marked": "^0.6.2",
-    "next": "^8.0.0-canary.18",
+    "next": "^9.3.2",
     "prop-types": "^15.6.2",
     "react": "^16.8.6",
     "react-apollo": "^2.4.1",
