@@ -1,9 +1,6 @@
 {
   "version": 2,
-  "name": "marge",
   "builds": [{ "src": "next.config.js", "use": "@now/next" }],
-  "rewrites": [
-    { "source": "/cat/(?<slug>[^/]+)$", "destination": "/categorie" }
-  ],
+  "rewrites": [{ "source": "/cat/:slug", "destination": "/categorie" }],
   "env": {}
 }
