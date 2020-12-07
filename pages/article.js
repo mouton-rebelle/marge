@@ -1,10 +1,9 @@
-import Head from 'next/head'
-import Layout from '../components/Layout'
-import { ArticleComp } from '../components/Article'
-import { Query } from 'react-apollo'
-import { withRouter } from 'next/router'
-import gql from 'graphql-tag'
-
+import Head from "next/head";
+import Layout from "../components/Layout";
+import { ArticleComp } from "../components/Article";
+import { Query } from "react-apollo";
+import { withRouter } from "next/router";
+import gql from "graphql-tag";
 
 const FETCH_ARTICLE_BY_ID = gql`
   query FetchBySlug($slug: String!) {
@@ -29,31 +28,31 @@ const FETCH_ARTICLE_BY_ID = gql`
       }
       support {
         name
-        description
+        description(markdown: true)
         price
       }
     }
   }
-`
+`;
 
 const Article = ({
   router: {
-    query: { slug }
-  }
+    query: { slug },
+  },
 }) => {
   return (
     <Query query={FETCH_ARTICLE_BY_ID} variables={{ slug }}>
       {({ loading, error, data }) => {
-        if (loading) return null
-        if (error) return `Error!: ${error}`
+        if (loading) return null;
+        if (error) return `Error!: ${error}`;
         return (
           <Layout>
             <Head />
             <ArticleComp article={data.article} />
           </Layout>
-        )
+        );
       }}
     </Query>
-  )
-}
-export default withRouter(Article)
+  );
+};
+export default withRouter(Article);
