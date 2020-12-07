@@ -11,7 +11,7 @@ export const InfiniteLoader = ({ children, noMoreData, onLoadMore, loading }) =>
         }
       },
       {
-        rootMargin: '100px'
+        rootMargin: '100px',
       }
     )
     observer.observe(loaderRef.current)
@@ -22,7 +22,10 @@ export const InfiniteLoader = ({ children, noMoreData, onLoadMore, loading }) =>
   return (
     <ThbContainer>
       {children}
-      <div ref={loaderRef} style={{ order: 9999999, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div
+        ref={loaderRef}
+        style={{ order: 9999999, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+      >
         <Loader loading={loading} />
       </div>
     </ThbContainer>
