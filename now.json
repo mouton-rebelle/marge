@@ -1,6 +1,11 @@
 {
   "version": 2,
   "builds": [{ "src": "next.config.js", "use": "@now/next" }],
-  "rewrites": [{ "source": "/cat/:slug", "destination": "/categorie" }],
+  "rewrites": [
+    { "source": "/cat/:slug", "destination": "/categorie" },
+    { "source": "/article/:slug", "destination": "/article" }
+    { "source": "/article/:slug", "destination": "/article" }
+    { "source": "/:tag", "destination": "/" }
+  ],
   "env": {}
 }
