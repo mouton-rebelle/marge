@@ -38,7 +38,7 @@ export const ArticleComp = ({ article }) => {
           <p>
             <em>{article.support.name}</em>
           </p>
-          <span>{article.support.price} &euro;</span>
+          {!!article.support.price && <span>{article.support.price} &euro;</span>}
           <div dangerouslySetInnerHTML={{ __html: article.support.description }} />
         </ArticleSupport>
       )}
