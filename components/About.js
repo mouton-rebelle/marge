@@ -6,7 +6,6 @@ import { Block, BlockWithEvent, EventDate } from './styled/layout'
 
 export const About = ({ content }) => {
   const now = DateTime.local()
-  console.log(content)
   return (
     <React.Fragment>
       {content

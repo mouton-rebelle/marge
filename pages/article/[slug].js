@@ -35,32 +35,30 @@ const FETCH_ARTICLE_BY_ID = gql`
   }
 `
 
-const Article = ({ data }) => {
+const Article = (props) => {
   return (
     <Layout>
       <Head />
-      <ArticleComp article={data.article} />
+      <ArticleComp article={props.data.article} />
     </Layout>
   )
 }
 export default Article
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const apolloClient = initializeApollo()
-
   const { data } = await apolloClient.query({
     query: FETCH_ARTICLE_BY_ID,
     variables: { slug: params.slug },
   })
+  if (!data) {
+    return {
+      props: {
+        notFound: true,
+      },
+    }
+  }
   return addApolloState(apolloClient, {
     props: { data },
-    revalidate: 120,
   })
-}
-
-export async function getStaticPaths() {
-  return {
-    paths: [],
-    fallback: true,
-  }
 }
