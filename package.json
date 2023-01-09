@@ -7,7 +7,7 @@
     "@apollo/client": "^3.3.4",
     "graphql": "^15.4.0",
     "isomorphic-unfetch": "^3.0.0",
-    "luxon": "^1.13.2",
+    "luxon": "^2.5.2",
     "marked": "^1.2.5",
     "next": "^10.0.3",
     "prop-types": "^15.6.2",
